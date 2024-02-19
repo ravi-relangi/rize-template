@@ -49,7 +49,7 @@ export default function LoginComponent() {
 
       <Button
         disabled={disableSubmit({ userName, password }, errors)}
-        buttonName='Submit'
+        buttonName='Login'
         onClickHandler={submitHandler}
       />
     </div>
