@@ -31,6 +31,7 @@ export default function LoginComponent() {
 
   return (
     <div className='loginContainer'>
+      <label className='loginLabel'>Login here</label>
       <Input
         inputFor='USERNAME'
         type='text'
