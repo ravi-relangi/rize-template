@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Input from './Input/Input';
 import './style.css';
 
 export default function LoginComponent() {
@@ -39,37 +40,30 @@ export default function LoginComponent() {
   };
 
   return (
-    <div>
-      <div className='loginContainer'>
-        <input
-          className='input'
-          type='text'
-          placeholder='Username'
-          onChange={(e) => {
-            inputHandler(e, 'USERNAME');
-          }}
-        />
-        {errors.userName && <div>{errors.userName}</div>}
+    <div className='loginContainer'>
+      <Input
+        inputFor='USERNAME'
+        type='text'
+        value={userName}
+        handleChange={inputHandler}
+        error={errors?.userName}
+      />
+      <Input
+        inputFor='PASSWORD'
+        type='password'
+        value={password}
+        handleChange={inputHandler}
+        error={errors?.password}
+      />
 
-        <input
-          className='input'
-          type='password'
-          placeholder='Password'
-          onChange={(e) => {
-            inputHandler(e, 'PASSWORD');
-          }}
-        />
-        {errors.password && <div>{errors.password}</div>}
-        <button
-          disabled={errors.userName || errors.password}
-          s
-          className='submitButton'
-          onClick={submitHandler}
-        >
-          {' '}
-          Submit
-        </button>
-      </div>
+      <button
+        disabled={errors.userName || errors.password}
+        s
+        className='submitButton'
+        onClick={submitHandler}
+      >
+        Submit
+      </button>
     </div>
   );
 }
