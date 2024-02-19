@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Input from '../../Core/Components/Input/Input';
 import Button from '../../Core/Components/Button/Button';
+import { disableSubmit, submitHandler, getErrorString } from './helpers';
 import './style.css';
 
 export default function LoginComponent() {
@@ -11,21 +12,21 @@ export default function LoginComponent() {
     password: '',
   });
 
-  const disableSubmit = () => {
-    return errors.userName !== '' || errors.password !== '';
-  };
+  // const disableSubmit = () => {
+  //   return errors.userName !== '' || errors.password !== '';
+  // };
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-  };
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
+  // };
 
-  const getErrorString = (inputType, val) => {
-    return val === ''
-      ? `${inputType} is required`
-      : val.length <= 3
-      ? `${inputType} is invalid`
-      : '';
-  };
+  // const getErrorString = (inputType, val) => {
+  //   return val === ''
+  //     ? `${inputType} is required`
+  //     : val.length <= 3
+  //     ? `${inputType} is invalid`
+  //     : '';
+  // };
 
   const inputHandler = (e, type) => {
     const inputValue = e.target.value;
@@ -62,7 +63,7 @@ export default function LoginComponent() {
       />
 
       <Button
-        disabled={disableSubmit()}
+        disabled={disableSubmit(errors)}
         buttonName='Submit'
         onClickHandler={submitHandler}
       />
