@@ -11,6 +11,10 @@ export default function LoginComponent() {
     password: '',
   });
 
+  const disableSubmit = () => {
+    return errors.userName !== '' || errors.password !== '';
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
   };
@@ -57,7 +61,11 @@ export default function LoginComponent() {
         error={errors?.password}
       />
 
-      <Button buttonName='Submit' onClickHandler={submitHandler} />
+      <Button
+        disabled={disableSubmit()}
+        buttonName='Submit'
+        onClickHandler={submitHandler}
+      />
     </div>
   );
 }

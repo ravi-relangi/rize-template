@@ -1,10 +1,14 @@
 import React from 'react';
 import './index.css';
 
-export default function Button({ onClickHandler, buttonName }) {
+export default function Button({ onClickHandler, buttonName, disabled }) {
   return (
     <>
-      <button className='submitButton' onClick={onClickHandler}>
+      <button
+        disabled={disabled}
+        className='submitButton'
+        onClick={onClickHandler}
+      >
         {buttonName}
       </button>
     </>
