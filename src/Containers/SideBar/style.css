@@ -2,6 +2,7 @@
   font-size: 40px;
   font-weight: bold;
   padding: 20px;
+  color: azure;
 }
 
 @media only screen and (max-width: 768px) {

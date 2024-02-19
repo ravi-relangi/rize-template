@@ -2,5 +2,12 @@
   margin: 10px 0;
   border-radius: 4px;
   width: 250px;
-  padding: 4px;
+  padding: 8px;
+  border: 1px solid #ccc; /* Adding border color here */
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b9183;
+  box-shadow: 0 0 5px rgba(50, 71, 94, 0.5);
 }

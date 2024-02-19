@@ -11,7 +11,13 @@
   justify-content: center;
   align-items: center;
   width: 50vw;
-  background-color: beige;
+  background: rgb(54, 226, 110);
+  background: linear-gradient(
+    86deg,
+    rgba(54, 226, 110, 1) 0%,
+    rgba(138, 196, 116, 1) 0%,
+    rgba(74, 223, 167, 1) 100%
+  );
   height: 100vh;
 }
 
