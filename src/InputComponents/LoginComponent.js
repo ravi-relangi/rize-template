@@ -4,8 +4,10 @@ import './style.css';
 export default function LoginComponent() {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
-  const [userNameError, setUserNameError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+  const [errors, setErrors] = useState({
+    userName: '',
+    password: '',
+  });
 
   const validateInput = (value) => {
     if (value && value.length > 3) {
@@ -22,17 +24,17 @@ export default function LoginComponent() {
   const inputHandler = (e, type) => {
     const val = e.target.value;
     if (type === 'PASSWORD') {
-      setPasswordError('');
-      if (val.length <= 3) {
-        setPasswordError('Invalid Password');
-      }
       setPassword(val);
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        password: val.length <= 3 ? 'Invalid Password' : '',
+      }));
     } else if (type === 'USERNAME') {
-      setUserNameError('');
-      if (val.length <= 3) {
-        setUserNameError('Invalid Username');
-      }
       setUserName(val);
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        userName: val.length <= 3 ? 'Invalid Username' : '',
+      }));
     }
   };
 
@@ -47,7 +49,7 @@ export default function LoginComponent() {
             inputHandler(e, 'USERNAME');
           }}
         />
-        {userNameError && <div>{userNameError}</div>}
+        {errors.userName && <div>{errors.userName}</div>}
 
         <input
           className='input'
@@ -57,9 +59,10 @@ export default function LoginComponent() {
             inputHandler(e, 'PASSWORD');
           }}
         />
-        {passwordError && <div>{passwordError}</div>}
+        {errors.password && <div>{errors.password}</div>}
         <button
-          disabled={userNameError || passwordError}
+          disabled={errors.userName || errors.password}
+          s
           className='submitButton'
           onClick={submitHandler}
         >
