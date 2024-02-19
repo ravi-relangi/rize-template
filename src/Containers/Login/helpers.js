@@ -1,5 +1,10 @@
-export const disableSubmit = (errors) => {
-  return errors.userName !== '' || errors.password !== '';
+export const disableSubmit = (inputValues, errors) => {
+  return (
+    inputValues.userName === '' ||
+    inputValues.password === '' ||
+    errors.userName !== '' ||
+    errors.password !== ''
+  );
 };
 
 export const submitHandler = (e) => {
