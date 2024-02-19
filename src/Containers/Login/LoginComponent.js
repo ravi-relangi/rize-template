@@ -11,31 +11,31 @@ export default function LoginComponent() {
     password: '',
   });
 
-  const validateInput = (value) => {
-    if (value && value.length > 3) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
   const submitHandler = (e) => {
     e.preventDefault();
   };
 
+  const getErrorString = (inputType, val) => {
+    return val === ''
+      ? `${inputType} is required`
+      : val.length <= 3
+      ? `${inputType} is invalid`
+      : '';
+  };
+
   const inputHandler = (e, type) => {
-    const val = e.target.value;
+    const inputValue = e.target.value;
     if (type === 'PASSWORD') {
-      setPassword(val);
+      setPassword(inputValue);
       setErrors((prevErrors) => ({
         ...prevErrors,
-        password: val.length <= 3 ? 'Invalid Password' : '',
+        password: getErrorString('Password', inputValue),
       }));
     } else if (type === 'USERNAME') {
-      setUserName(val);
+      setUserName(inputValue);
       setErrors((prevErrors) => ({
         ...prevErrors,
-        userName: val.length <= 3 ? 'Invalid Username' : '',
+        userName: getErrorString('Username', inputValue),
       }));
     }
   };
