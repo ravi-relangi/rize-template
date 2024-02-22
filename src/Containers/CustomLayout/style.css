@@ -55,13 +55,9 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .card6 {
-    grid-column: span 2;
-  }
-}
-@media (max-width: 992px) {
-  .customLayoutLeftSection {
-    display: none;
+  .card6,
+  .card5 {
+    grid-column: span 1;
   }
 }
 
@@ -70,9 +66,14 @@
     display: none;
   }
 
-  .card5 {
-    grid-column: span 2;
+  .customLayoutRightSection {
+    grid-template-columns: 1fr;
   }
+
+  .card {
+    grid-column: span 1;
+  }
+
   .card6 {
     display: none;
   }
