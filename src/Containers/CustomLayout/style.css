@@ -49,3 +49,18 @@
 .card6 {
   grid-column: span 3;
 }
+
+@media (max-width: 992px) {
+  .customLayoutRightSection {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card6 {
+    grid-column: span 2;
+  }
+}
+@media (max-width: 992px) {
+  .customLayoutLeftSection {
+    display: none;
+  }
+}
