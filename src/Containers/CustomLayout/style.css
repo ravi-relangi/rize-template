@@ -1,0 +1,51 @@
+.customLayoutContainer {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.customLayoutLeftSection {
+  background-color: rgb(149, 196, 180);
+  width: 20%;
+}
+
+.customLayoutRightSection {
+  background-color: rgb(222, 205, 184);
+  width: 100%;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: 10px;
+}
+
+.card {
+  background-color: azure;
+  border-radius: 12px;
+  margin: 20px;
+  text-align: center;
+}
+
+.card1 {
+  grid-column: span 1;
+}
+
+.card2 {
+  grid-column: span 1;
+}
+
+.card3 {
+  grid-column: span 1;
+}
+
+.card4 {
+  grid-column: span 1;
+}
+
+.card5 {
+  grid-column: span 2;
+}
+
+.card6 {
+  grid-column: span 3;
+}
