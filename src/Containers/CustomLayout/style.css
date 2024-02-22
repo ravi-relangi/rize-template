@@ -64,3 +64,16 @@
     display: none;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .customLayoutLeftSection {
+    display: none;
+  }
+
+  .card5 {
+    grid-column: span 2;
+  }
+  .card6 {
+    display: none;
+  }
+}
